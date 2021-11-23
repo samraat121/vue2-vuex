@@ -6,7 +6,7 @@
     <input type="text" name="name" placeholder="Enter book" /> <button type="button" class="btn btn-primary">Add</button>
 
     <ul>
-        <li v-for="(book, index) in $store.state.bookList" :key="index"> {{index+1}}. {{book}} </li>
+        <li v-for="(book, index) in bookList" :key="index"> {{index+1}}. {{book}} <button>Delete</button></li> 
     </ul>
 
 
@@ -19,11 +19,11 @@ export default {
     name: 'Todo',
 
     // computed property use korar karon hocche for loop a je logic dekhchi seta ke vejal na kore akhanei define kore diye shudhu use kora okk
-    // computed: {
-    //     bookList() {
-    //         return this.$store.state.bookList
-    //     }
-    // },
+    computed: {
+        bookList() {
+            return this.$store.state.bookList
+        }
+    },
 }
 </script>
 <style lang="">
