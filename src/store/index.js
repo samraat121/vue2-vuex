@@ -12,6 +12,9 @@ const store = new Vuex.Store({
         ADD_BOOK (state, data) {
             // console.log(data)
             state.bookList.push(data);
+        },
+        REMOVE_BOOK(state, data) {
+            console.log(data)
         }
     },
     actions: {

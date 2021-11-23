@@ -6,7 +6,7 @@
     <input type="text" v-model="bookName" name="name" placeholder="Enter book" /> <button @click="addBook" type="button" class="btn btn-primary">Add</button>
 
     <ul>
-        <li v-for="(book, index) in bookList" :key="index"> {{index+1}}. {{book}} <button>Delete</button></li> 
+        <li v-for="(book, index) in bookList" :key="index"> {{index+1}}. {{book}} <button @click="removeBook(index)">Delete</button></li> 
     </ul>
 
 
@@ -32,6 +32,10 @@ export default {
     methods: {
         addBook() {
             this.$store.dispatch("addBook", this.bookName)
+        },
+        removeBook(index) {
+            // console.log(index);
+            this.$store.commit("REMOVE_BOOK",index )
         }
     },
 }
