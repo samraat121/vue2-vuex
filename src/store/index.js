@@ -30,6 +30,9 @@ const store = new Vuex.Store({
         },
         removeBook({commit}, data) {
             commit("REMOVE_BOOK", data);
+        },
+        alertMe() {
+            alert('Hello Jahangir Alam');
         }
     }
 

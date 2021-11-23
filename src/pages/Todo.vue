@@ -1,7 +1,7 @@
 <template lang="">
     <div class="container">
         <h1 class="text-center">Todos App</h1>
-            <p>by: {{name}}</p>
+            <p>by: {{name}}</p> <button @click="alertMe">Alert</button>
          <hr />
 
         <p>Total Book: {{ totalBook }}</p>
@@ -44,6 +44,7 @@ export default {
         ...mapActions({
             removeBook: "removeBook",
             addBook: "addBook", //prothome return er bookName ke add button a patabo, then amra ai kaj ta korle totally kaj korbe
+            alertMe: "alertMe"
         }),
         // addBook() {
         //     this.$store.dispatch("addBook", this.bookName)
