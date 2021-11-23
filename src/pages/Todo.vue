@@ -13,6 +13,10 @@
     </ul><hr />
 
     <div>
+        <form v-on:submit.prevent="onSubmit">
+            <input type="text" v-model="title" placeholder="Add Todo" />
+            <input type="submit" value="Submit">
+      </form>
       <h1>Todos</h1>
       <div class="todos">
         <div
@@ -35,7 +39,8 @@ export default {
     name: 'Todo',
     data() {
         return {
-            bookName: ''
+            bookName: '',
+            title: '',
         }
     },
     computed: {
@@ -58,7 +63,12 @@ export default {
             alertMe: "alertMe",
             fetchTodos: "fetchTodos",  //Todos get
             removeTodo: "removeTodo",
+            addTodo: "addTodo",
         }),
+        onSubmit() {
+            this.addTodo(this.title);
+            this.title = '';
+        }
     },
 }
 </script>
