@@ -1,7 +1,7 @@
 <template lang="">
     <div class="container">
         <h1 class="text-center">Todos App</h1> <hr />
-
+        <p>Total Book: {{ $store.getters.totalBook }}</p>
 
     <input type="text" v-model="bookName" name="name" placeholder="Enter book" /> <button @click="addBook" type="button" class="btn btn-primary">Add</button>
 

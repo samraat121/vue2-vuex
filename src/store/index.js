@@ -7,6 +7,11 @@ const store = new Vuex.Store({
     state: {
         bookList: ["Book 1", "Book 2", "Book 3"]
     },
+    getters: {
+        totalBook(state) {
+            return state.bookList.length
+        }
+    },
     // mutations 2 ta data dorbe 1 ta state arekta action theke payload hisabe je data ta patabo setake dorbe.
     mutations: {
         ADD_BOOK (state, data) {
