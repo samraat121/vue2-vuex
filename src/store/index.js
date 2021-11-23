@@ -10,12 +10,13 @@ const store = new Vuex.Store({
     // mutations 2 ta data dorbe 1 ta state arekta action theke payload hisabe je data ta patabo setake dorbe.
     mutations: {
         ADD_BOOK (state, data) {
-            console.log(data)
+            // console.log(data)
+            state.bookList.push(data);
         }
     },
     actions: {
-        addBook(context, data) {
-            context.commit("ADD_BOOK", data);
+        addBook({commit}, data) {
+            commit("ADD_BOOK", data);
         }
     }
 
