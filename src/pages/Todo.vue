@@ -10,8 +10,20 @@
 
     <ul>
         <li v-for="(book, index) in bookList" :key="index"> {{index+1}}. {{book}} <button @click="removeBook(index)">Delete</button></li> 
-    </ul>
+    </ul><hr />
 
+    <div>
+      <h1>Todos</h1>
+      <div class="todos">
+        <div
+          v-for="todo in allTodos"
+          class="todo"
+          v-bind:key="todo.key"
+        >
+          {{ todo.title }} <button>Delete</button>
+        </div>
+      </div>
+    </div>
 
 
         
@@ -26,34 +38,26 @@ export default {
             bookName: ''
         }
     },
-
-    // computed property use korar karon hocche for loop a je logic dekhchi seta ke vejal na kore akhanei define kore diye shudhu use kora okk
     computed: {
         ...mapState({
             bookList: "bookList",
             name: "name"
         }),
-        // bookList() {
-        //     return this.$store.state.bookList
-        // }
         ...mapGetters({
             totalBook: "totalBook",
+            allTodos: "allTodos"  //Todos get
         })
+    },
+    created() {
+        this.fetchTodos(); //Todos get
     },
     methods: {
         ...mapActions({
             removeBook: "removeBook",
-            addBook: "addBook", //prothome return er bookName ke add button a patabo, then amra ai kaj ta korle totally kaj korbe
-            alertMe: "alertMe"
+            addBook: "addBook",
+            alertMe: "alertMe",
+            fetchTodos: "fetchTodos"  //Todos get
         }),
-        // addBook() {
-        //     this.$store.dispatch("addBook", this.bookName)
-        // },
-        // removeBook(index) {
-        //     // console.log(index);
-        //     // this.$store.commit("REMOVE_BOOK",index )
-        //     this.$store.dispatch("removeBook", index);
-        // }
     },
 }
 </script>
