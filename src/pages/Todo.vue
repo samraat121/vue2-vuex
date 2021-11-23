@@ -4,7 +4,7 @@
             <p>by: {{name}}</p>
          <hr />
 
-        <p>Total Book: {{ $store.getters.totalBook }}</p>
+        <p>Total Book: {{ totalBook }}</p>
 
     <input type="text" v-model="bookName" name="name" placeholder="Enter book" /> <button @click="addBook(bookName)" type="button" class="btn btn-primary">Add</button>
 
@@ -18,7 +18,7 @@
     </div>
 </template>
 <script>
-import {mapState, mapActions} from 'vuex'
+import {mapState, mapActions, mapGetters} from 'vuex'
 export default {
     name: 'Todo',
     data() {
@@ -36,6 +36,9 @@ export default {
         // bookList() {
         //     return this.$store.state.bookList
         // }
+        ...mapGetters({
+            totalBook: "totalBook",
+        })
     },
     methods: {
         ...mapActions({
