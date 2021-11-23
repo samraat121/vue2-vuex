@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        bookList: ["Book 1", "Book 2", "Book 3"]
+        bookList: ["Book 1", "Book 2", "Book 3"],
+        name: "Jahangir Alam"
     },
     getters: {
         totalBook(state) {
