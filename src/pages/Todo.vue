@@ -18,7 +18,7 @@
     </div>
 </template>
 <script>
-import {mapState} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 export default {
     name: 'Todo',
     data() {
@@ -38,14 +38,17 @@ export default {
         // }
     },
     methods: {
+        ...mapActions({
+            removeBook: "removeBook"
+        }),
         addBook() {
             this.$store.dispatch("addBook", this.bookName)
         },
-        removeBook(index) {
-            // console.log(index);
-            // this.$store.commit("REMOVE_BOOK",index )
-            this.$store.dispatch("removeBook", index);
-        }
+        // removeBook(index) {
+        //     // console.log(index);
+        //     // this.$store.commit("REMOVE_BOOK",index )
+        //     this.$store.dispatch("removeBook", index);
+        // }
     },
 }
 </script>
