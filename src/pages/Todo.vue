@@ -6,7 +6,7 @@
 
         <p>Total Book: {{ $store.getters.totalBook }}</p>
 
-    <input type="text" v-model="bookName" name="name" placeholder="Enter book" /> <button @click="addBook" type="button" class="btn btn-primary">Add</button>
+    <input type="text" v-model="bookName" name="name" placeholder="Enter book" /> <button @click="addBook(bookName)" type="button" class="btn btn-primary">Add</button>
 
     <ul>
         <li v-for="(book, index) in bookList" :key="index"> {{index+1}}. {{book}} <button @click="removeBook(index)">Delete</button></li> 
@@ -39,11 +39,12 @@ export default {
     },
     methods: {
         ...mapActions({
-            removeBook: "removeBook"
+            removeBook: "removeBook",
+            addBook: "addBook", //prothome return er bookName ke add button a patabo, then amra ai kaj ta korle totally kaj korbe
         }),
-        addBook() {
-            this.$store.dispatch("addBook", this.bookName)
-        },
+        // addBook() {
+        //     this.$store.dispatch("addBook", this.bookName)
+        // },
         // removeBook(index) {
         //     // console.log(index);
         //     // this.$store.commit("REMOVE_BOOK",index )
