@@ -15,6 +15,7 @@ const store = new Vuex.Store({
         },
         REMOVE_BOOK(state, data) {
             console.log(data)
+            state.bookList.splice(data,1)
         }
     },
     actions: {
