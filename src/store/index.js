@@ -20,6 +20,9 @@ const store = new Vuex.Store({
     actions: {
         addBook({commit}, data) {
             commit("ADD_BOOK", data);
+        },
+        removeBook({commit}, data) {
+            commit("REMOVE_BOOK", data);
         }
     }
 

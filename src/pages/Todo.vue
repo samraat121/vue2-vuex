@@ -35,7 +35,8 @@ export default {
         },
         removeBook(index) {
             // console.log(index);
-            this.$store.commit("REMOVE_BOOK",index )
+            // this.$store.commit("REMOVE_BOOK",index )
+            this.$store.dispatch("removeBook", index);
         }
     },
 }
