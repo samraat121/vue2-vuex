@@ -31,7 +31,7 @@ export default {
     },
     methods: {
         addBook() {
-            console.log(this.bookName)
+            this.$store.dispatch("addBook", this.bookName)
         }
     },
 }
