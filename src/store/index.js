@@ -35,7 +35,11 @@ const store = new Vuex.Store({
         //Todos get
         setTodos(state, todos) {
             state.todos = todos
-        }
+        },
+        REMOVE_TODO(state, data) {
+            console.log(data),
+            state.todos.splice(data, 1)
+        },
     },
     actions: {
         addBook({commit}, data) {
@@ -52,7 +56,11 @@ const store = new Vuex.Store({
         async fetchTodos({ commit }) {
             const response = await axios.get('https://jsonplaceholder.typicode.com/todos');
             commit('setTodos', response.data);
-          }
+        },
+        async removeTodo({commit}, data) {
+            await axios.delete(`https://jsonplaceholder.typicode.com/todos/${data}`);
+            commit("REMOVE_TODO", data);
+        }
     }
 
 })

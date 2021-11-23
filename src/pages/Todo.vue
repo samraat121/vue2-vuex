@@ -16,11 +16,11 @@
       <h1>Todos</h1>
       <div class="todos">
         <div
-          v-for="todo in allTodos"
+          v-for="(todo, index) in allTodos"
           class="todo"
           v-bind:key="todo.key"
         >
-          {{ todo.title }} <button>Delete</button>
+          {{todo.id}}. {{ todo.title }} <button @click="removeTodo(index)">Delete</button>
         </div>
       </div>
     </div>
@@ -56,7 +56,8 @@ export default {
             removeBook: "removeBook",
             addBook: "addBook",
             alertMe: "alertMe",
-            fetchTodos: "fetchTodos"  //Todos get
+            fetchTodos: "fetchTodos",  //Todos get
+            removeTodo: "removeTodo",
         }),
     },
 }
